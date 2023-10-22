@@ -109,7 +109,7 @@ router.get("/offers", async (req, res) => {
 
 router.get("/offers/id:", async (req, res) => {
   try {
-    const offersById = await Offer.findById(req.query.id);
+    const offersById = await Offer.findById(req.params.id).populate("owner");
     console.log(offersById);
 
     res.json(offersById);
